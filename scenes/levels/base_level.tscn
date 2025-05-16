@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dqlgasggxd8t7"]
+
+[node name="base_level" type="Node2D"]
+
+[node name="Tilemap" type="Node2D" parent="."]
+
+[node name="NPC" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Spawn" type="Marker2D" parent="."]
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="Exits" type="Node2D" parent="."]
