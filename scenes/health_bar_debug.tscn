@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://cblsevfrcf4i5"]
+
+[ext_resource type="Script" path="res://scripts/health_bar_debug.gd" id="1_u022v"]
+
+[node name="HealthBarDebug" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1056.0
+offset_bottom = -584.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u022v")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 32.0
+placeholder_text = "Value"
+alignment = 1
+
+[node name="ApplyDamage" type="Button" parent="."]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 48.0
+offset_bottom = 64.0
+tooltip_text = "Apply Damage"
+mouse_default_cursor_shape = 2
+text = "-"
+
+[node name="ApplyHeal" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 64.0
+tooltip_text = "Apply Heal"
+mouse_default_cursor_shape = 2
+text = "+"
+
+[connection signal="pressed" from="ApplyDamage" to="." method="_on_apply_damage_pressed"]
+[connection signal="pressed" from="ApplyHeal" to="." method="_on_apply_heal_pressed"]
