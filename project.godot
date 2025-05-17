@@ -13,6 +13,11 @@ config_version=5
 config/name="Metroid Game"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
+[global_group]
+
+Area="Activates when in contact with wall/ground/roof"
+Creature="Activates when in contact with a creature"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
