@@ -12,6 +12,7 @@ offset_right = -564.0
 offset_bottom = -233.0
 
 [node name="HealthBar" parent="HealthBarDebug" instance=ExtResource("2_lxstt")]
+layout_mode = 0
 offset_left = -36.0
 offset_top = -116.0
 offset_right = 220.0
