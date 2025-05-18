@@ -1,4 +1,9 @@
 # Author @McKillerroy
+# Add health_bar.tscn as a Child Node to a Parent Node
+# The Parent Node must contain "var current_health" & "var max_health"
+# Only "current_health" should be modified to apply damage or heals
+# Only @export var's should be modified to change the bar's appearence in the inspector dock ->
+
 extends Control
 
 @export var bar_size     : Vector2 = Vector2(256 , 32)
