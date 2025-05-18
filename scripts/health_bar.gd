@@ -1,3 +1,4 @@
+# Author @McKillerroy
 extends Control
 
 @export var bar_size     : Vector2 = Vector2(256 , 32)

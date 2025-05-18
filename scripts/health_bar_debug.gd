@@ -12,5 +12,6 @@ func _on_apply_damage_pressed():
 func _on_apply_heal_pressed():
 	current_health += float($LineEdit.text)
 
+@warning_ignore("unused_parameter")
 func _process(delta):
 	clamp_health()
