@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdqaecd0m0doa"]
+
+[ext_resource type="PackedScene" uid="uid://cnmomrs3w47ie" path="res://scenes/characters/base_character.tscn" id="1_jpuip"]
+[ext_resource type="Script" path="res://scripts/characters/player.gd" id="2_74esf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5potf"]
+size = Vector2(40, 40)
+
+[node name="Player" instance=ExtResource("1_jpuip")]
+script = ExtResource("2_74esf")
+health = 100
+max_health = 100
+damage = 10
+defense = 5
+speed = 100
+normal_speed = 100
+run_speed = 125
+acceleration = 150.0
+jump_height = 100.0
+
+[node name="Body" parent="." index="0"]
+shape = SubResource("RectangleShape2D_5potf")
+
+[node name="ColorRect" type="ColorRect" parent="." index="1"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 1, 1)
