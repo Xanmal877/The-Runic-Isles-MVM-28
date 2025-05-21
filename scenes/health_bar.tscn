@@ -23,6 +23,7 @@ offset_right = 256.0
 offset_bottom = 16.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_2ifsf")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bedib")
+step = 0.0
 value = 100.0
 show_percentage = false
 
@@ -32,5 +33,6 @@ offset_right = 256.0
 offset_bottom = 16.0
 theme_override_styles/background = SubResource("StyleBoxFlat_lfdnc")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rl3pq")
+step = 0.0
 value = 100.0
 show_percentage = false
