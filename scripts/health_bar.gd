@@ -10,6 +10,7 @@ func _process(delta):
 	positive_alteration()
 	negative_health_change()
 	negative_alteration()
+	alteration_color_switch()
 	update_max_health()
 
 
