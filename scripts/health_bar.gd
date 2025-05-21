@@ -22,7 +22,7 @@ func positive_alteration() -> void:
 
 
 func negative_health_change() -> void:
-	if $HealthBar.value < $AlterationBar.value and $HealthBar.value == parent.health:
+	if parent.health < $HealthBar.value:
 		$HealthBar.value = lerp($HealthBar.value, parent.health, 0.1)
 
 
