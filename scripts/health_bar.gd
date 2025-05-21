@@ -1,25 +1,32 @@
-extends Control
+extends Node2D
 
-@onready var Parent     = get_parent()
-@onready var Health     = $Health
-@onready var Alteration = $Alteration
+@onready var parent: Object = get_parent()
+@onready var parent_health_ratio: float = parent.health / parent.max_health
 
-@onready var parent_health_ratio : float = Parent.current_health / Parent.max_health
-@onready var bar_health_ratio    : float = Health.size.x / Health.value
-
-func alteration_position() -> Vector2:
-	var _parent_health_ratio : float = Parent.current_health / Parent.max_health
-	return Vector2(Health.size.x * _parent_health_ratio, Health.position.y + Health.size.y)
 
 func _process(delta):
-	
-	var tween_health_value = create_tween()
-	var tween_alteration_position = create_tween()
-	Health.max_value = Parent.max_health
-	Health.min_value = 0
+	positive_health_change()
+	positive_alteration()
+	negative_health_change()
+	negative_alteration()
 
-	tween_health_value.tween_property(Health    , "value"   , Parent.current_health, 1)
-	tween_alteration_position.tween_property(Alteration, "position", alteration_position(), 1)
-	
-	Alteration.max_value = Parent.current_health - Health.value
-	Alteration.value = Parent.current_health - Health.value
+
+func positive_health_change() -> void:
+	if parent.health > $HealthBar.value:
+		$HealthBar.value = lerp($HealthBar.value, parent.health, 0.05)
+
+func positive_alteration() -> void:
+	if parent.health > $AlterationBar.value:
+		$AlterationBar.value = lerp($AlterationBar.value, parent.health, 0.1)
+		$AlterationBar.get("theme_override_styles/fill").bg_color = Color8(0, 150, 0)
+
+
+func negative_health_change() -> void:
+	if $HealthBar.value < $AlterationBar.value and $HealthBar.value == parent.health:
+		$HealthBar.value = lerp($HealthBar.value, parent.health, 0.1)
+
+
+func negative_alteration() -> void:
+	if parent.health < $AlterationBar.value:
+		$AlterationBar.value = lerp($AlterationBar.value, parent.health, 0.05)
+		$AlterationBar.get("theme_override_styles/fill").bg_color = Color8(255, 150, 0)

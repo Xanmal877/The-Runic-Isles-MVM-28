@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://xtma3rk642h5"]
 
 [ext_resource type="PackedScene" uid="uid://cblsevfrcf4i5" path="res://scenes/health_bar_debug.tscn" id="1_2q5cx"]
-[ext_resource type="PackedScene" uid="uid://cu0hqe6xuoenb" path="res://scenes/health_bar.tscn" id="2_lxstt"]
+[ext_resource type="PackedScene" uid="uid://c6u1gqy1agpn0" path="res://scenes/health_bar.tscn" id="2_lxstt"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -12,8 +12,4 @@ offset_right = -564.0
 offset_bottom = -233.0
 
 [node name="HealthBar" parent="HealthBarDebug" instance=ExtResource("2_lxstt")]
-layout_mode = 0
-offset_left = -36.0
-offset_top = -116.0
-offset_right = 220.0
-offset_bottom = -84.0
+position = Vector2(-4, -37)
