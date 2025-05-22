@@ -1,8 +1,13 @@
 class_name Player extends BaseCharacter
 
+@export var animtree: AnimationTree
+
+var jumping: bool = false
+
 func _physics_process(delta: float) -> void:
 	# Apply movement with acceleration
 	handle_movement(delta)
+	handle_animations()
 	# Actually move the character
 	move_and_slide()
 
@@ -36,8 +41,27 @@ func handle_jump(delta):
 	# Apply gravity when in the air
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	
-	# Handle jumping - Fixed formula for consistent jump height
+		# Don't set jumping to false here - let it complete naturally
+	else:
+		# Only reset jumping when we land
+		if jumping:
+			jumping = false
+			animtree.handle_jump_end()  # New function to reset jump condition
+
+	# Handle jumping - start jump
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
-		# For a consistent jump height, use this formula instead
+		jumping = true
+		animtree.handle_jump_anim()
 		velocity.y = -sqrt(2 * gravity * jump_height)
+
+func handle_animations():
+	if jumping:
+		# Don't handle walk/idle animations while jumping
+		return
+	
+	if direction != Vector2.ZERO:
+		animtree.handle_walking_anim(true)
+	else:
+		animtree.handle_walking_anim(false)
+	
+	animtree.update_blend()
