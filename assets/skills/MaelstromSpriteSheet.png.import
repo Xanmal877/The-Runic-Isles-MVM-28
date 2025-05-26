@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5nt01vqssgij"
-path="res://.godot/imported/Beach Tiles.png-d71e00f1f8e2847c3611ac5ed2e2c046.ctex"
+uid="uid://cp5y0w0wolkwn"
+path="res://.godot/imported/MaelstromSpriteSheet.png-5def43245c4d7695eb028144821f2f9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Beach Tiles.png"
-dest_files=["res://.godot/imported/Beach Tiles.png-d71e00f1f8e2847c3611ac5ed2e2c046.ctex"]
+source_file="res://assets/skills/MaelstromSpriteSheet.png"
+dest_files=["res://.godot/imported/MaelstromSpriteSheet.png-5def43245c4d7695eb028144821f2f9d.ctex"]
 
 [params]
 

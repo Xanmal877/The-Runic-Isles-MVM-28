@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8ncu08puxs4s"
-path="res://.godot/imported/THE_CAVE_V2.png-bdc6b0c791fddd24d8ec077d5c54fe8b.ctex"
+uid="uid://cqiw1sgg5fu8e"
+path="res://.godot/imported/WindSpark.png-a1bea31721b158166804e84abcc735e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/THE_CAVE_V2.png"
-dest_files=["res://.godot/imported/THE_CAVE_V2.png-bdc6b0c791fddd24d8ec077d5c54fe8b.ctex"]
+source_file="res://assets/skills/WindSpark.png"
+dest_files=["res://.godot/imported/WindSpark.png-a1bea31721b158166804e84abcc735e6.ctex"]
 
 [params]
 
