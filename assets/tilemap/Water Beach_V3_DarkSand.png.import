@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4lff2l25wow"
-path="res://.godot/imported/Water Beach_V3_DarkSand.png-83ad7ead8e4b3bace9295c4ae4175eb5.ctex"
+path="res://.godot/imported/Water Beach_V3_DarkSand.png-1e98ca10b5e639ff6aec663846644c7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Water Beach_V3_DarkSand.png"
-dest_files=["res://.godot/imported/Water Beach_V3_DarkSand.png-83ad7ead8e4b3bace9295c4ae4175eb5.ctex"]
+source_file="res://assets/tilemap/Water Beach_V3_DarkSand.png"
+dest_files=["res://.godot/imported/Water Beach_V3_DarkSand.png-1e98ca10b5e639ff6aec663846644c7a.ctex"]
 
 [params]
 
