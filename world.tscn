@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://cyharyqj5h6yt"]
+[gd_scene load_steps=4 format=3 uid="uid://cyharyqj5h6yt"]
+
+[ext_resource type="PackedScene" uid="uid://cdqaecd0m0doa" path="res://scenes/characters/player.tscn" id="1_yl4tg"]
+[ext_resource type="PackedScene" uid="uid://bcha7ddupyojl" path="res://scenes/characters/water_sprite.tscn" id="2_xss2k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luilx"]
+size = Vector2(564, 38)
 
 [node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_yl4tg")]
+position = Vector2(190, 495)
+
+[node name="Water Sprite" parent="." instance=ExtResource("2_xss2k")]
+position = Vector2(461, 522)
+
+[node name="tempfloor" type="StaticBody2D" parent="."]
+position = Vector2(117, 554)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tempfloor"]
+position = Vector2(281, 20)
+shape = SubResource("RectangleShape2D_luilx")
+
+[node name="ColorRect" type="ColorRect" parent="tempfloor"]
+offset_right = 564.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)

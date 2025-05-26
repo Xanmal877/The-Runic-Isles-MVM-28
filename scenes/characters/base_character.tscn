@@ -15,4 +15,9 @@ script = ExtResource("1_xh4s6")
 
 [node name="Areas" type="Node2D" parent="."]
 
+[node name="Detection Box" type="Area2D" parent="Areas"]
+
 [node name="NavAgent" type="NavigationAgent2D" parent="."]
+
+[connection signal="body_entered" from="Areas/Detection Box" to="." method="character_detected"]
+[connection signal="body_exited" from="Areas/Detection Box" to="." method="character_exited"]

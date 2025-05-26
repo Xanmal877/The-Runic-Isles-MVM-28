@@ -11,6 +11,9 @@ func _physics_process(delta: float) -> void:
 	# Actually move the character
 	move_and_slide()
 
+func _input(event: InputEvent) -> void:
+	primary_attack()
+
 func handle_movement(delta) -> void:
 	handle_basic_movement(delta)
 	handle_jump(delta)
@@ -65,3 +68,13 @@ func handle_animations():
 		animtree.handle_walking_anim(false)
 	
 	animtree.update_blend()
+
+func primary_attack():
+	if Input.is_action_just_pressed("primary_attack"):
+		if !enemies_detected.is_empty():
+			for enemy in enemies_detected:
+				if is_instance_valid(enemy) and global_position.distance_to(enemy.global_position) <= 50:
+					enemy.health -= damage
+					print("Damaged: " + str(enemy.name) + "remaining health: " + str(enemy.health))
+					check_killed()
+					enemy.check_killed()
