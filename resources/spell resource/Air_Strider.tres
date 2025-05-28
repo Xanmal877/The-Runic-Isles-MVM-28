@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SpellSelfResource" load_steps=2 format=3 uid="uid://c7l655fxge1g2"]
+
+[ext_resource type="Script" path="res://resources/spell resource/spell_self.gd" id="1_0bo00"]
+
+[resource]
+script = ExtResource("1_0bo00")
+Name = &"Air Strider"
+description = "Double Jump!"
+effect_value = null
+effect_type = 3
+spell_alignment = 1
+spell_target = 3
+spell_action = 2
+spell_cooldown = null
+spell_duration = null
+unlocked = null
+disabled = null
+on_cooldown = null
