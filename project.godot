@@ -15,6 +15,14 @@ run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 <<<<<<<HEADconfig/name="MVM 28th"
 
+[autoload]
+
+BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg")
+
 [input]
 
 look_up={
