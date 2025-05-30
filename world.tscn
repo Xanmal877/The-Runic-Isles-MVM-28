@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cdqaecd0m0doa" path="res://scenes/characters/player.tscn" id="1_yl4tg"]
 [ext_resource type="PackedScene" uid="uid://bcha7ddupyojl" path="res://scenes/characters/water_sprite.tscn" id="2_xss2k"]
 [ext_resource type="Script" path="res://ui/mouse_cursor/scripts/mouse_cursor.gd" id="3_kuprw"]
-[ext_resource type="Texture2D" uid="uid://jg4jkuc6dpfn" path="res://ui/mouse_cursor/assets/spr_cursor_arrow_default.png" id="4_lias8"]
-[ext_resource type="Texture2D" uid="uid://bracc3kes1yaa" path="res://ui/mouse_cursor/assets/spr_cursor_arrow_clicked.png" id="5_x4c2h"]
+[ext_resource type="Texture2D" uid="uid://jg4jkuc6dpfn" path="res://ui/mouse_cursor/assets/spr_cursor_default.png" id="4_7bjc0"]
+[ext_resource type="Texture2D" uid="uid://bracc3kes1yaa" path="res://ui/mouse_cursor/assets/spr_cursor_clicked.png" id="5_coune"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_luilx"]
 size = Vector2(564, 38)
@@ -14,7 +14,7 @@ size = Vector2(564, 38)
 [node name="Player" parent="." instance=ExtResource("1_yl4tg")]
 position = Vector2(190, 495)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
 
 [node name="Water Sprite" parent="." instance=ExtResource("2_xss2k")]
@@ -34,5 +34,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="MouseCursor" type="Node" parent="."]
 script = ExtResource("3_kuprw")
-default = ExtResource("4_lias8")
-clicked = ExtResource("5_x4c2h")
+default = ExtResource("4_7bjc0")
+clicked = ExtResource("5_coune")
