@@ -19,9 +19,11 @@ size = Vector2(564, 38)
 
 [node name="Player" parent="." instance=ExtResource("1_yl4tg")]
 position = Vector2(190, 495)
+acceleration = 0.0
 
 [node name="Water Sprite" parent="." instance=ExtResource("2_xss2k")]
 position = Vector2(461, 522)
+acceleration = 0.0
 
 [node name="tempfloor" type="StaticBody2D" parent="."]
 position = Vector2(117, 554)

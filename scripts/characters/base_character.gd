@@ -25,6 +25,7 @@ var current_combat_target: BaseCharacter
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 enum factions {PLAYER,ENEMY}
+
 @export var current_faction: factions
 
 @onready var character_sprite: Sprite2D = $"Character Sprite"
@@ -36,7 +37,7 @@ func character_detected(body: Node2D) -> void:
 		enemies_detected.append(body)
 		print("Enemy found")
 
-func character_exited(body: Node2D) -> void:
+func character_exited(_body: Node2D) -> void:
 	pass # Replace with function body.
 
 func check_killed():

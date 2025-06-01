@@ -367,7 +367,7 @@ defense = 5.0
 speed = 100
 normal_speed = 100
 run_speed = 125
-acceleration = 150.0
+acceleration = 100.0
 jump_height = 100.0
 
 [node name="Body" parent="." index="0"]
