@@ -1,10 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyharyqj5h6yt"]
+[gd_scene load_steps=13 format=3 uid="uid://cyharyqj5h6yt"]
 
 [ext_resource type="PackedScene" uid="uid://cdqaecd0m0doa" path="res://scenes/characters/player.tscn" id="1_yl4tg"]
 [ext_resource type="PackedScene" uid="uid://bcha7ddupyojl" path="res://scenes/characters/water_sprite.tscn" id="2_xss2k"]
 [ext_resource type="Script" path="res://ui/mouse_cursor/scripts/mouse_cursor.gd" id="3_kuprw"]
 [ext_resource type="Texture2D" uid="uid://jg4jkuc6dpfn" path="res://ui/mouse_cursor/assets/spr_cursor_arrow_default.png" id="4_lias8"]
+[ext_resource type="PackedScene" uid="uid://cfax4cstfh6sv" path="res://ui/menus/tab_menu.tscn" id="5_ledne"]
 [ext_resource type="Texture2D" uid="uid://bracc3kes1yaa" path="res://ui/mouse_cursor/assets/spr_cursor_arrow_clicked.png" id="5_x4c2h"]
+[ext_resource type="Texture2D" uid="uid://x16qrsxip5pg" path="res://ui/tab_menu_button/assets/spr_tab_menu_button_normal.png" id="7_3pbbn"]
+[ext_resource type="Texture2D" uid="uid://brht30ay802d2" path="res://ui/tab_menu_button/assets/spr_tab_menu_button_pressed.png" id="7_cmoa1"]
+[ext_resource type="Script" path="res://ui/tab_menu_button/scripts/tab_menu_button.gd" id="7_hehre"]
+[ext_resource type="Texture2D" uid="uid://cqmiynauk5bn1" path="res://ui/tab_menu_button/assets/spr_tab_menu_button_hover.png" id="8_gmq2v"]
+[ext_resource type="PackedScene" uid="uid://c6u1gqy1agpn0" path="res://ui/health_bar/scenes/health_bar.tscn" id="10_cxcni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_luilx"]
 size = Vector2(564, 38)
@@ -14,7 +20,7 @@ size = Vector2(564, 38)
 [node name="Player" parent="." instance=ExtResource("1_yl4tg")]
 position = Vector2(190, 495)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
 
 [node name="Water Sprite" parent="." instance=ExtResource("2_xss2k")]
@@ -32,7 +38,28 @@ offset_right = 564.0
 offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 
-[node name="MouseCursor" type="Node" parent="."]
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBarContainer" parent="UILayer" node_paths=PackedStringArray("agent") instance=ExtResource("10_cxcni")]
+agent = NodePath("../../Player")
+
+[node name="MouseCursor" type="Node" parent="UILayer"]
 script = ExtResource("3_kuprw")
 default = ExtResource("4_lias8")
 clicked = ExtResource("5_x4c2h")
+
+[node name="TabMenuButton" type="TextureButton" parent="UILayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+toggle_mode = true
+texture_normal = ExtResource("7_3pbbn")
+texture_pressed = ExtResource("7_cmoa1")
+texture_hover = ExtResource("8_gmq2v")
+script = ExtResource("7_hehre")
+menu_instance = ExtResource("5_ledne")
+
+[connection signal="toggled" from="UILayer/TabMenuButton" to="UILayer/TabMenuButton" method="_on_toggled"]
