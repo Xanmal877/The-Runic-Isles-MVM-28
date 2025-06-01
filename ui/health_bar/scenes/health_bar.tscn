@@ -28,7 +28,7 @@ border_color = Color(0, 0, 0, 1)
 corner_detail = 1
 
 [node name="HealthBarContainer" type="PanelContainer"]
-offset_right = 512.0
+offset_right = 256.0
 offset_bottom = 32.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
