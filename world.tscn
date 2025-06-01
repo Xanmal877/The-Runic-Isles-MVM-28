@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://cyharyqj5h6yt"]
 
 [ext_resource type="PackedScene" uid="uid://cdqaecd0m0doa" path="res://scenes/characters/player.tscn" id="1_yl4tg"]
-[ext_resource type="PackedScene" path="res://scenes/characters/water_sprite.tscn" id="2_xss2k"]
+[ext_resource type="PackedScene" uid="uid://bcha7ddupyojl" path="res://scenes/characters/water_sprite.tscn" id="2_xss2k"]
 [ext_resource type="Script" path="res://ui/mouse_cursor/scripts/mouse_cursor.gd" id="3_kuprw"]
-[ext_resource type="Texture2D" path="res://ui/mouse_cursor/assets/spr_cursor_arrow_default.png" id="4_lias8"]
+[ext_resource type="Texture2D" uid="uid://jg4jkuc6dpfn" path="res://ui/mouse_cursor/assets/spr_cursor_default.png" id="4_lias8"]
 [ext_resource type="PackedScene" path="res://ui/menus/tab_menu.tscn" id="5_ledne"]
-[ext_resource type="Texture2D" path="res://ui/mouse_cursor/assets/spr_cursor_arrow_clicked.png" id="5_x4c2h"]
+[ext_resource type="Texture2D" uid="uid://bracc3kes1yaa" path="res://ui/mouse_cursor/assets/spr_cursor_clicked.png" id="5_x4c2h"]
 [ext_resource type="Texture2D" uid="uid://x16qrsxip5pg" path="res://ui/tab_menu_button/assets/spr_tab_menu_button_normal.png" id="7_3pbbn"]
 [ext_resource type="Texture2D" uid="uid://brht30ay802d2" path="res://ui/tab_menu_button/assets/spr_tab_menu_button_pressed.png" id="7_cmoa1"]
 [ext_resource type="Script" path="res://ui/tab_menu_button/scripts/tab_menu_button.gd" id="7_hehre"]
@@ -23,7 +23,6 @@ acceleration = 0.0
 
 [node name="Water Sprite" parent="." instance=ExtResource("2_xss2k")]
 position = Vector2(461, 522)
-acceleration = 0.0
 
 [node name="tempfloor" type="StaticBody2D" parent="."]
 position = Vector2(117, 554)
