@@ -1,50 +1,55 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6u1gqy1agpn0"]
+[gd_scene load_steps=9 format=3 uid="uid://c6u1gqy1agpn0"]
 
 [ext_resource type="Script" path="res://ui/health_bar/scripts/health_bar.gd" id="1_blcgs"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4sna"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dx08y"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfdnc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdkqq"]
 bg_color = Color(0, 0, 0, 1)
 corner_detail = 1
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6qwx0"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rl3pq"]
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
 corner_detail = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ifsf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bedib"]
 bg_color = Color(0.588235, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 corner_detail = 1
 
-[node name="HealthBarContainer" type="PanelContainer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pouri"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="HealthBar" type="PanelContainer"]
 offset_right = 256.0
 offset_bottom = 32.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxEmpty_q4sna")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dx08y")
 script = ExtResource("1_blcgs")
 
-[node name="AlterationBar" type="ProgressBar" parent="."]
+[node name="Background" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qdkqq")
+
+[node name="Alteration" type="ProgressBar" parent="."]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_styles/background = SubResource("StyleBoxFlat_lfdnc")
+theme_override_styles/background = SubResource("StyleBoxEmpty_6qwx0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rl3pq")
 step = 0.0
 value = 100.0
 show_percentage = false
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="Health" type="ProgressBar" parent="."]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxEmpty_2ifsf")
@@ -52,6 +57,10 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_bedib")
 step = 0.0
 value = 100.0
 show_percentage = false
+
+[node name="Frame" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pouri")
 
 [node name="Shading" type="VBoxContainer" parent="."]
 layout_mode = 2
