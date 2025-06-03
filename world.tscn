@@ -15,7 +15,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_luilx"]
 size = Vector2(564, 38)
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" groups=["WorldNode"]]
 
 [node name="Player" parent="." instance=ExtResource("1_yl4tg")]
 position = Vector2(190, 495)
