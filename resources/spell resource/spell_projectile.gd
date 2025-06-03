@@ -14,4 +14,10 @@ func use_spell(agent: BaseCharacter, target: BaseCharacter, spell: SpellResource
 
 		var level_node = agent.get_tree().get_first_node_in_group("base_level")
 		level_node.call_deferred("add_sibling", spell_scene)
+		
+		if spell.effect_type == 1:
+			apply_damage(agent, target, spell)
+		
+		if spell.spell_action == 0:
+			apply_dispel(agent, target, spell)
 	

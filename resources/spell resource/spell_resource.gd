@@ -62,3 +62,7 @@ func apply_buff(agent: BaseCharacter, target: BaseCharacter, spell: SpellResourc
 	
 	if buff_type == 4:
 		target.speed += effect_value
+	
+func apply_dispel(agent: BaseCharacter, target: Node2D, spell: SpellResource) -> void:
+	if target.is_in_group("Dispelable"):
+		target.queue_free()
