@@ -4,6 +4,11 @@ class_name Player extends BaseCharacter
 
 var jumping: bool = false
 
+@export var double_jump: SpellResource
+
+func setup_character():
+	pass
+
 func _physics_process(delta: float) -> void:
 	# Apply movement with acceleration
 	handle_movement(delta)
@@ -78,6 +83,10 @@ func primary_attack():
 					print("Damaged: " + str(enemy.name) + "remaining health: " + str(enemy.health))
 					check_killed()
 					enemy.check_killed()
+
+func air_strider():
+	pass
+	SelfSpells.cast_spell
 
 func save_game():
 	if Input.is_action_just_pressed("look_up"):

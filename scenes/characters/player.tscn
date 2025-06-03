@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cnmomrs3w47ie" path="res://scenes/characters/base_character.tscn" id="1_jpuip"]
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="2_74esf"]
 [ext_resource type="Texture2D" uid="uid://lt2rk2f34dmo" path="res://assets/characters/player.png" id="3_7wjy7"]
+[ext_resource type="Resource" uid="uid://c7l655fxge1g2" path="res://resources/spell resource/Air_Strider.tres" id="3_ecjtd"]
 [ext_resource type="Script" path="res://scripts/characters/animations/player_animtree.gd" id="4_af85m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5potf"]
@@ -352,15 +353,12 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_tcqk8")
 states/Walk/position = Vector2(582, 101)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ru40v"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_dxd5e"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_dny17"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_rcm8d"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_y7lyu"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_1i1r1"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_6kwy4")]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r3hca"]
-radius = 100.0
-
 [node name="Player" node_paths=PackedStringArray("animtree") groups=["Player"] instance=ExtResource("1_jpuip")]
-
 texture_filter = 1
 position = Vector2(-2, -40)
 script = ExtResource("2_74esf")
 animtree = NodePath("AnimationTree")
+double_jump = ExtResource("3_ecjtd")
 health = 100.0
 max_health = 100.0
 damage = 10.0
@@ -404,4 +402,3 @@ agent = NodePath("..")
 position = Vector2(2, 38)
 offset = Vector2(0, -96)
 zoom = Vector2(1.5, 1.75)
-

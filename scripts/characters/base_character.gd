@@ -32,6 +32,14 @@ enum factions {PLAYER,ENEMY}
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 
+
+func _ready() -> void:
+	setup_character()
+
+
+func setup_character():
+	pass
+
 func character_detected(body: Node2D) -> void:
 	if body is BaseCharacter and body.current_faction != current_faction:
 		enemies_detected.append(body)

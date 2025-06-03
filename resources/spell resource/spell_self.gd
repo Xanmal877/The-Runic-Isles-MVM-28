@@ -1,7 +1,7 @@
 extends SpellResource
 class_name SpellSelfResource
 
-func use_spell(agent: BaseCharacter, target: BaseCharacter, spell: SpellResource) -> void:
+func cast_spell(agent: BaseCharacter, target: BaseCharacter, spell: SpellResource) -> void:
 	if can_cast(agent, target, spell):
 		const SELF_SPELL_SCENE = preload("res://scenes/abilities/self_spell_scene.tscn")
 		var spell_scene = SELF_SPELL_SCENE.instantiate()
