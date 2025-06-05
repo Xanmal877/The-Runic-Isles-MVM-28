@@ -1,0 +1,222 @@
+[gd_scene load_steps=20 format=3 uid="uid://cd8t24iaisu2x"]
+
+[ext_resource type="Texture2D" uid="uid://e0syygsexl8a" path="res://assets/ui/Background_3.png" id="1_1rw42"]
+[ext_resource type="Script" path="res://scripts/ui/rune_craft_input_slot.gd" id="2_ratvc"]
+[ext_resource type="Texture2D" uid="uid://vq3liipx5cmy" path="res://assets/ui/RuneSlot_Alignment_2_1.png" id="2_s5m04"]
+[ext_resource type="Texture2D" uid="uid://c60in3p2vncop" path="res://assets/ui/RuneSlot_Alignment_2_2.png" id="3_ebfem"]
+[ext_resource type="Texture2D" uid="uid://8tr0h1l7cjot" path="res://assets/ui/RuneSlot_Target_2_1.png" id="5_s4xur"]
+[ext_resource type="Texture2D" uid="uid://dam34nswc7a55" path="res://assets/ui/RuneSlot_Target_2_2.png" id="6_ybyvt"]
+[ext_resource type="Texture2D" uid="uid://bubl5f73tbtc5" path="res://assets/ui/RuneSlot_Action_2_1.png" id="7_g8vdy"]
+[ext_resource type="Texture2D" uid="uid://teer8w2sb3ei" path="res://assets/ui/RuneSlot_Action_2_2.png" id="8_a4tuv"]
+[ext_resource type="Texture2D" uid="uid://ca37mkaes53jj" path="res://assets/ui/RuneSlot_Spell_2_1.png" id="9_txj8w"]
+[ext_resource type="Texture2D" uid="uid://kj0p105rhhuu" path="res://assets/ui/RuneSlot_Spell_2_2.png" id="10_63o7i"]
+[ext_resource type="Script" path="res://scripts/ui/rune_craft_output_slot.gd" id="11_5br6l"]
+[ext_resource type="Texture2D" uid="uid://xcbwarjd8q4b" path="res://assets/ui/RuneSlot_Alignment_1_1.png" id="12_5fcpr"]
+[ext_resource type="Texture2D" uid="uid://bcw6iasy7qmux" path="res://assets/ui/RuneSlot_Alignment_1_2.png" id="13_0dq4b"]
+[ext_resource type="Texture2D" uid="uid://b6okjkuho7dpc" path="res://assets/ui/RuneSlot_Target_1_1.png" id="14_41vjb"]
+[ext_resource type="Texture2D" uid="uid://bod2bj67badv6" path="res://assets/ui/RuneSlot_Target_1_2.png" id="15_f3jsx"]
+[ext_resource type="Texture2D" uid="uid://cxkatf183nj0u" path="res://assets/ui/RuneSlot_Action_1_1.png" id="16_beqng"]
+[ext_resource type="Texture2D" uid="uid://blk7dd8ivqxri" path="res://assets/ui/RuneSlot_Action_1_2.png" id="17_5n823"]
+[ext_resource type="Texture2D" uid="uid://c1e7m75kpc7rk" path="res://assets/ui/RuneSlot_Spell_1_1.png" id="18_uvrag"]
+[ext_resource type="Texture2D" uid="uid://bkqgammtsd1ef" path="res://assets/ui/RuneSlot_Spell_1_2.png" id="19_ttihc"]
+
+[node name="CraftingTab" type="Control"]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -640.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("1_1rw42")
+
+[node name="RuneCraftInputSlot" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 52.0
+offset_right = 305.0
+offset_bottom = 122.0
+texture_normal = ExtResource("2_s5m04")
+texture_hover = ExtResource("3_ebfem")
+script = ExtResource("2_ratvc")
+
+[node name="RuneCraftInputSlot2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 197.0
+offset_right = 212.0
+offset_bottom = 267.0
+texture_normal = ExtResource("5_s4xur")
+texture_hover = ExtResource("6_ybyvt")
+script = ExtResource("2_ratvc")
+rune_type = 2
+
+[node name="RuneCraftInputSlot3" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 197.0
+offset_right = 410.0
+offset_bottom = 267.0
+texture_normal = ExtResource("7_g8vdy")
+texture_hover = ExtResource("8_a4tuv")
+script = ExtResource("2_ratvc")
+rune_type = 1
+
+[node name="RuneCraftOutputSlot" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 146.0
+offset_right = 305.0
+offset_bottom = 216.0
+texture_normal = ExtResource("9_txj8w")
+texture_hover = ExtResource("10_63o7i")
+script = ExtResource("11_5br6l")
+
+[node name="HBoxRunes" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 290.0
+offset_right = 248.0
+offset_bottom = 493.0
+theme_override_constants/separation = -15
+
+[node name="VBoxAlignmentRunes" type="VBoxContainer" parent="HBoxRunes"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = -15
+
+[node name="TextureButton" type="TextureButton" parent="HBoxRunes/VBoxAlignmentRunes"]
+layout_mode = 2
+texture_normal = ExtResource("12_5fcpr")
+texture_hover = ExtResource("13_0dq4b")
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxRunes/VBoxAlignmentRunes"]
+layout_mode = 2
+texture_normal = ExtResource("12_5fcpr")
+texture_hover = ExtResource("13_0dq4b")
+
+[node name="VBoxTargetRunes" type="VBoxContainer" parent="HBoxRunes"]
+layout_mode = 2
+theme_override_constants/separation = -15
+
+[node name="TextureButton" type="TextureButton" parent="HBoxRunes/VBoxTargetRunes"]
+layout_mode = 2
+texture_normal = ExtResource("14_41vjb")
+texture_hover = ExtResource("15_f3jsx")
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxRunes/VBoxTargetRunes"]
+layout_mode = 2
+texture_normal = ExtResource("14_41vjb")
+texture_hover = ExtResource("15_f3jsx")
+
+[node name="TextureButton3" type="TextureButton" parent="HBoxRunes/VBoxTargetRunes"]
+layout_mode = 2
+texture_normal = ExtResource("14_41vjb")
+texture_hover = ExtResource("15_f3jsx")
+
+[node name="TextureButton4" type="TextureButton" parent="HBoxRunes/VBoxTargetRunes"]
+layout_mode = 2
+texture_normal = ExtResource("14_41vjb")
+texture_hover = ExtResource("15_f3jsx")
+
+[node name="VBoxActionRunes" type="VBoxContainer" parent="HBoxRunes"]
+layout_mode = 2
+theme_override_constants/separation = -15
+
+[node name="TextureButton" type="TextureButton" parent="HBoxRunes/VBoxActionRunes"]
+layout_mode = 2
+texture_normal = ExtResource("16_beqng")
+texture_hover = ExtResource("17_5n823")
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxRunes/VBoxActionRunes"]
+layout_mode = 2
+texture_normal = ExtResource("16_beqng")
+texture_hover = ExtResource("17_5n823")
+
+[node name="TextureButton3" type="TextureButton" parent="HBoxRunes/VBoxActionRunes"]
+layout_mode = 2
+texture_normal = ExtResource("16_beqng")
+texture_hover = ExtResource("17_5n823")
+
+[node name="TextureButton4" type="TextureButton" parent="HBoxRunes/VBoxActionRunes"]
+layout_mode = 2
+texture_normal = ExtResource("16_beqng")
+texture_hover = ExtResource("17_5n823")
+
+[node name="HBoxSpells" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 280.0
+offset_right = 462.0
+offset_bottom = 483.0
+theme_override_constants/separation = -5
+
+[node name="VBoxSpells" type="VBoxContainer" parent="HBoxSpells"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = -20
+
+[node name="TextureButton" type="TextureButton" parent="HBoxSpells/VBoxSpells"]
+layout_mode = 2
+texture_normal = ExtResource("18_uvrag")
+texture_hover = ExtResource("19_ttihc")
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxSpells/VBoxSpells"]
+layout_mode = 2
+texture_normal = ExtResource("18_uvrag")
+texture_hover = ExtResource("19_ttihc")
+
+[node name="VBoxSpells2" type="VBoxContainer" parent="HBoxSpells"]
+layout_mode = 2
+theme_override_constants/separation = -20
+
+[node name="TextureButton" type="TextureButton" parent="HBoxSpells/VBoxSpells2"]
+layout_mode = 2
+texture_normal = ExtResource("18_uvrag")
+texture_hover = ExtResource("19_ttihc")
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxSpells/VBoxSpells2"]
+layout_mode = 2
+texture_normal = ExtResource("18_uvrag")
+texture_hover = ExtResource("19_ttihc")
+
+[node name="TextureButton3" type="TextureButton" parent="HBoxSpells/VBoxSpells2"]
+layout_mode = 2
+texture_normal = ExtResource("18_uvrag")
+texture_hover = ExtResource("19_ttihc")
+
+[node name="TextureButton4" type="TextureButton" parent="HBoxSpells/VBoxSpells2"]
+layout_mode = 2
+texture_normal = ExtResource("18_uvrag")
+texture_hover = ExtResource("19_ttihc")
+
+[node name="VBoxSpells3" type="VBoxContainer" parent="HBoxSpells"]
+layout_mode = 2
+theme_override_constants/separation = -20
+
+[node name="TextureButton" type="TextureButton" parent="HBoxSpells/VBoxSpells3"]
+layout_mode = 2
+texture_normal = ExtResource("18_uvrag")
+texture_hover = ExtResource("19_ttihc")
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxSpells/VBoxSpells3"]
+layout_mode = 2
+texture_normal = ExtResource("18_uvrag")
+texture_hover = ExtResource("19_ttihc")
+
+[node name="TextureButton3" type="TextureButton" parent="HBoxSpells/VBoxSpells3"]
+layout_mode = 2
+texture_normal = ExtResource("18_uvrag")
+texture_hover = ExtResource("19_ttihc")
+
+[node name="TextureButton4" type="TextureButton" parent="HBoxSpells/VBoxSpells3"]
+layout_mode = 2
+texture_normal = ExtResource("18_uvrag")
+texture_hover = ExtResource("19_ttihc")

@@ -1,0 +1,118 @@
+[gd_scene load_steps=4 format=3 uid="uid://ban38crnawq5s"]
+
+[ext_resource type="Script" path="res://scripts/ui/tab_menu_settings.gd" id="1_h8h4p"]
+[ext_resource type="Resource" uid="uid://bkldpvw51gu4g" path="res://resources/settings_config/settings_config.tres" id="2_nth8v"]
+[ext_resource type="Texture2D" uid="uid://ba5u206yaeqa2" path="res://assets/ui/Background_1.png" id="3_5s2t0"]
+
+[node name="SettingsTab" type="Control"]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -640.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h8h4p")
+settings_config_file = ExtResource("2_nth8v")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_5s2t0")
+
+[node name="SettingsHBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VolumeMargin" type="MarginContainer" parent="SettingsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VolumeVBox" type="VBoxContainer" parent="SettingsHBox/VolumeMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VolumeHeader" type="Label" parent="SettingsHBox/VolumeMargin/VolumeVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Volume"
+
+[node name="Music" type="HBoxContainer" parent="SettingsHBox/VolumeMargin/VolumeVBox"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="SettingsHBox/VolumeMargin/VolumeVBox/Music"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="SettingsHBox/VolumeMargin/VolumeVBox/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+
+[node name="GameSFX" type="HBoxContainer" parent="SettingsHBox/VolumeMargin/VolumeVBox"]
+layout_mode = 2
+
+[node name="GameSFXLabel" type="Label" parent="SettingsHBox/VolumeMargin/VolumeVBox/GameSFX"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Game SFX"
+
+[node name="GameSFXSlider" type="HSlider" parent="SettingsHBox/VolumeMargin/VolumeVBox/GameSFX"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+
+[node name="MenuSFX" type="HBoxContainer" parent="SettingsHBox/VolumeMargin/VolumeVBox"]
+layout_mode = 2
+
+[node name="MenuSFXLabel" type="Label" parent="SettingsHBox/VolumeMargin/VolumeVBox/MenuSFX"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Menu SFX"
+
+[node name="MenuSFXSlider" type="HSlider" parent="SettingsHBox/VolumeMargin/VolumeVBox/MenuSFX"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+
+[node name="DisplayMargin" type="MarginContainer" parent="SettingsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="DisplayVBox" type="VBoxContainer" parent="SettingsHBox/DisplayMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DisplayHeader" type="Label" parent="SettingsHBox/DisplayMargin/DisplayVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Display"
+
+[node name="OptionButton" type="OptionButton" parent="SettingsHBox/DisplayMargin/DisplayVBox"]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Windowed"
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Fullscreen - Windowed"
+popup/item_2/id = 2

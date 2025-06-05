@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://xtma3rk642h5"]
+
+[ext_resource type="PackedScene" uid="uid://cblsevfrcf4i5" path="res://scenes/ui/health_bar_debug.tscn" id="1_2q5cx"]
+[ext_resource type="PackedScene" uid="uid://c6u1gqy1agpn0" path="res://scenes/ui/health_bar.tscn" id="2_lxstt"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBarDebug" parent="." instance=ExtResource("1_2q5cx")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="HealthBarContainer" parent="HealthBarDebug" instance=ExtResource("2_lxstt")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -254.0
+offset_top = -81.0
+offset_right = 258.0
+offset_bottom = -49.0
+grow_horizontal = 2
