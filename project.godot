@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 [autoload]
 
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+GameManager="*res://singletons/game_manager.gd"
 
 [display]
 

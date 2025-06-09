@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:assets/environments/Wind_ruins.png.import
 uid="uid://biiafrjyouwep"
 path="res://.godot/imported/Wind_ruins.png-1d02a12b3e2967f2e7eb65bce84f04c9.ctex"
+========
+uid="uid://cgob3w7bk8jkm"
+path="res://.godot/imported/WaterGolem_IDLE.png-18426c8b2b18369b2668edb58680f22f.ctex"
+>>>>>>>> 0beb798 (XanBranch):assets/characters/enemies/WaterGolem_IDLE.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< HEAD:assets/environments/Wind_ruins.png.import
 source_file="res://assets/environments/Wind_ruins.png"
 dest_files=["res://.godot/imported/Wind_ruins.png-1d02a12b3e2967f2e7eb65bce84f04c9.ctex"]
+========
+source_file="res://assets/characters/enemies/WaterGolem_IDLE.png"
+dest_files=["res://.godot/imported/WaterGolem_IDLE.png-18426c8b2b18369b2668edb58680f22f.ctex"]
+>>>>>>>> 0beb798 (XanBranch):assets/characters/enemies/WaterGolem_IDLE.png.import
 
 [params]
 
