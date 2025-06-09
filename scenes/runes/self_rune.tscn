@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://qxlm1f00h7lu"]
+
+[ext_resource type="PackedScene" uid="uid://dgnqkp3lmv8ek" path="res://scenes/runes/wind_rune.tscn" id="1_8rpyi"]
+[ext_resource type="Texture2D" uid="uid://doirm34jhbn3r" path="res://assets/runes/target_rune_self.png" id="2_fkq8c"]
+
+[node name="self rune" instance=ExtResource("1_8rpyi")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_fkq8c")

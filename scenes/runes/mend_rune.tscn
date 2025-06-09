@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bejsnpgghdxqj"]
+
+[ext_resource type="PackedScene" uid="uid://dgnqkp3lmv8ek" path="res://scenes/runes/wind_rune.tscn" id="1_tjuqa"]
+[ext_resource type="Texture2D" uid="uid://2bdlfupm1ibg" path="res://assets/runes/action_rune_mend.png" id="2_ufj5a"]
+
+[node name="mend rune" instance=ExtResource("1_tjuqa")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ufj5a")
