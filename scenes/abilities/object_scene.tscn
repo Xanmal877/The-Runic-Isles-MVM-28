@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cij7x6kejdnpb"]
+
+[ext_resource type="Script" path="res://scenes/abilities/object_spell.gd" id="1_u2r8n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1qhg"]
+radius = 2.6
+height = 13.6
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlycq"]
+radius = 21.0
+height = 76.0
+
+[sub_resource type="Animation" id="Animation_fbrqp"]
+resource_name = "Wind_Wall"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7u37t"]
+_data = {
+"Wind_Wall": SubResource("Animation_fbrqp")
+}
+
+[node name="Spell Objects" type="AnimatableBody2D"]
+script = ExtResource("1_u2r8n")
+
+[node name="Barrier" type="CollisionShape2D" parent="."]
+position = Vector2(5.68434e-14, -14)
+scale = Vector2(5, 5)
+shape = SubResource("CapsuleShape2D_g1qhg")
+
+[node name="AoE" type="Area2D" parent="."]
+
+[node name="Effect Rad" type="CollisionShape2D" parent="AoE"]
+position = Vector2(0, -17)
+shape = SubResource("CapsuleShape2D_qlycq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7u37t")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -13)

@@ -24,6 +24,8 @@ enum action {Dispel, Mend, Enchant, Projectile}
 @export var disabled: bool
 @export var on_cooldown: bool
 
+var cd_timer: SpellTimers
+
 # Spell Casting
 func cast_spell(agent: BaseCharacter, target: Node2D, spell: SpellResource) -> void:
 	pass
@@ -35,8 +37,10 @@ func can_cast(agent: BaseCharacter, target: Node2D, spell: SpellResource) -> boo
 	
 	if spell.disabled:
 		return false
-
-	return true
+	
+	else:
+		cd_timer.StartCooldownTimer(spell_cooldown, spell.Name)
+		return true
 
 func apply_damage(agent: BaseCharacter, target: BaseCharacter, spell: SpellResource) -> void:
 	var damage = spell.effect_value

@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 [global_group]
 
 Dispelable="for objects intended to be dispeled"
+Liftable="for things liftable by spells"
 
 [input]
 
