@@ -74,10 +74,11 @@ func _on_health_tween_timer_timeout():
 #region functions
 
 func update_properties() -> void:
-	agent_health_copy = agent.health
-	agent_health_ratio = agent.health / agent.max_health
-	$Health.max_value = agent.max_health
-	$Alteration.max_value = agent.max_health
+	if is_instance_valid(agent):
+		agent_health_copy = agent.health
+		agent_health_ratio = agent.health / agent.max_health
+		$Health.max_value = agent.max_health
+		$Alteration.max_value = agent.max_health
 
 
 func handle_shake() -> void:

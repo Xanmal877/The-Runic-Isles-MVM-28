@@ -1,7 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cyharyqj5h6yt"]
 
 [ext_resource type="PackedScene" uid="uid://cdqaecd0m0doa" path="res://scenes/characters/player.tscn" id="1_yl4tg"]
-[ext_resource type="PackedScene" uid="uid://bcha7ddupyojl" path="res://scenes/characters/water_sprite.tscn" id="2_xss2k"]
 [ext_resource type="Script" path="res://ui/mouse_cursor/scripts/mouse_cursor.gd" id="3_kuprw"]
 [ext_resource type="Texture2D" uid="uid://jg4jkuc6dpfn" path="res://ui/mouse_cursor/assets/spr_cursor_default.png" id="4_lias8"]
 [ext_resource type="PackedScene" uid="uid://cfax4cstfh6sv" path="res://ui/menus/tab_menu.tscn" id="5_ledne"]
@@ -11,30 +10,13 @@
 [ext_resource type="Script" path="res://ui/tab_menu_button/scripts/tab_menu_button.gd" id="7_hehre"]
 [ext_resource type="Texture2D" uid="uid://cqmiynauk5bn1" path="res://ui/tab_menu_button/assets/spr_tab_menu_button_hover.png" id="8_gmq2v"]
 [ext_resource type="PackedScene" uid="uid://c6u1gqy1agpn0" path="res://ui/health_bar/scenes/health_bar.tscn" id="10_cxcni"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_luilx"]
-size = Vector2(564, 38)
+[ext_resource type="PackedScene" uid="uid://e5wra3a5rw3w" path="res://scenes/levels/Water_Isle.tscn" id="12_aly08"]
+[ext_resource type="PackedScene" uid="uid://bcha7ddupyojl" path="res://scenes/characters/enemies/water_sprite.tscn" id="13_grgy3"]
 
 [node name="World" type="Node2D" groups=["WorldNode"]]
 
 [node name="Player" parent="." instance=ExtResource("1_yl4tg")]
-position = Vector2(190, 495)
-acceleration = 0.0
-
-[node name="Water Sprite" parent="." instance=ExtResource("2_xss2k")]
-position = Vector2(461, 522)
-
-[node name="tempfloor" type="StaticBody2D" parent="."]
-position = Vector2(117, 554)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tempfloor"]
-position = Vector2(281, 20)
-shape = SubResource("RectangleShape2D_luilx")
-
-[node name="ColorRect" type="ColorRect" parent="tempfloor"]
-offset_right = 564.0
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
+position = Vector2(417, 505)
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
@@ -59,5 +41,17 @@ texture_pressed = ExtResource("7_cmoa1")
 texture_hover = ExtResource("8_gmq2v")
 script = ExtResource("7_hehre")
 menu_instance = ExtResource("5_ledne")
+
+[node name="Water_Isle" parent="." instance=ExtResource("12_aly08")]
+position = Vector2(67, 6)
+
+[node name="Water Sprite" parent="." instance=ExtResource("13_grgy3")]
+position = Vector2(665, 534)
+
+[node name="Water Sprite2" parent="." instance=ExtResource("13_grgy3")]
+position = Vector2(859, 518)
+
+[node name="Water Sprite3" parent="." instance=ExtResource("13_grgy3")]
+position = Vector2(1058, 529)
 
 [connection signal="toggled" from="UILayer/TabMenuButton" to="UILayer/TabMenuButton" method="_on_toggled"]

@@ -1,20 +1,35 @@
 class_name Player extends BaseCharacter
 
 @export var animtree: AnimationTree
-
 var jumping: bool = false
+var jump_height: float = 0.0
+var acceleration: float = 0.0
+var is_attacking: bool = false  # Add this flag
+
+func setup_character():
+	name = "Player"
+	health = 100
+	max_health = 100
+	
+	damage = 10
+	defense = 4
+	
+	normal_speed = 5000
+	speed = normal_speed
+	run_speed = (normal_speed * 2)
+	
+	jump_height = 100
+	acceleration = 10
+	
 
 func _physics_process(delta: float) -> void:
-	# Apply movement with acceleration
 	handle_movement(delta)
 	handle_animations()
-	# Actually move the character
 	move_and_slide()
 
-func _input(_event: InputEvent) -> void:
-	primary_attack()
-	save_game()
-	load_game()
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("primary_attack"):
+		primary_attack()
 
 func handle_movement(delta) -> void:
 	handle_basic_movement(delta)
@@ -25,9 +40,8 @@ func handle_basic_movement(delta):
 	direction.x = Input.get_axis("walk_left", "walk_right")
 	
 	if direction.x != 0:
-		velocity.x = direction.x * (speed * speed) * delta
+		velocity.x = direction.x * speed * delta  # Fixed: removed extra speed multiplication
 	else:
-		# Apply friction - gradual slowdown is more natural than instant stop
 		velocity.x = 0.0
 	
 	# Handle running (shift)
@@ -35,7 +49,7 @@ func handle_basic_movement(delta):
 		speed = run_speed
 	else:
 		speed = normal_speed
-
+		
 	# Store the last non-zero direction for animations
 	if direction != Vector2.ZERO:
 		last_direction = direction
@@ -44,13 +58,12 @@ func handle_jump(delta):
 	# Apply gravity when in the air
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		# Don't set jumping to false here - let it complete naturally
 	else:
 		# Only reset jumping when we land
 		if jumping:
 			jumping = false
-			animtree.handle_jump_end()  # New function to reset jump condition
-
+			animtree.handle_jump_end()
+	
 	# Handle jumping - start jump
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		jumping = true
@@ -58,8 +71,7 @@ func handle_jump(delta):
 		velocity.y = -sqrt(2 * gravity * jump_height)
 
 func handle_animations():
-	if jumping:
-		# Don't handle walk/idle animations while jumping
+	if jumping or is_attacking:  # Don't handle walk/idle while attacking OR jumping
 		return
 	
 	if direction != Vector2.ZERO:
@@ -70,19 +82,24 @@ func handle_animations():
 	animtree.update_blend()
 
 func primary_attack():
-	if Input.is_action_just_pressed("primary_attack"):
-		if !enemies_detected.is_empty():
-			for enemy in enemies_detected:
-				if is_instance_valid(enemy) and global_position.distance_to(enemy.global_position) <= 50:
-					enemy.health -= damage
-					print("Damaged: " + str(enemy.name) + "remaining health: " + str(enemy.health))
-					check_killed()
-					enemy.check_killed()
+	# Guard clause - prevent attack if already attacking
+	if is_attacking:
+		return
 
-func save_game():
-	if Input.is_action_just_pressed("look_up"):
-		SaveSystem.save_character(self)
+	is_attacking = true
+	animtree.handle_attack_anim(true)
+	animtree.update_blend()
 
-func load_game():
-	if Input.is_action_just_pressed("look_down"):
-		SaveSystem.load_character(self)
+	if !enemies_detected.is_empty():
+		for enemy in enemies_detected:
+			if is_instance_valid(enemy) and global_position.distance_to(enemy.global_position) <= 100:
+				enemy.health -= damage
+				#print("Damaged: " + str(enemy.name) + " remaining health: " + str(enemy.health))
+				check_killed()
+				enemy.check_killed()
+
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	if anim_name.begins_with("attack"):
+		is_attacking = false
+		animtree.handle_attack_anim(false)
+		animtree.update_blend()

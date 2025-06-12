@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://due62lo4avd5q"]
+
+[ext_resource type="PackedScene" uid="uid://f3lqapsm5ln5" path="res://scenes/characters/enemies/base_enemy.tscn" id="1_mxrs6"]
+[ext_resource type="Script" path="res://scripts/characters/enemies/wind_sprite.gd" id="2_reu4f"]
+[ext_resource type="PackedScene" uid="uid://c6u1gqy1agpn0" path="res://ui/health_bar/scenes/health_bar.tscn" id="3_rnh6p"]
+
+[node name="Wind Sprite" instance=ExtResource("1_mxrs6")]
+script = ExtResource("2_reu4f")
+
+[node name="HealthBar2" parent="." index="6" instance=ExtResource("3_rnh6p")]
+offset_left = -119.0
+offset_top = -85.0
+offset_right = 115.0
+offset_bottom = -74.0

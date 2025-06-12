@@ -1,0 +1,202 @@
+[gd_scene load_steps=13 format=3 uid="uid://jcmdxn0eaf0v"]
+
+[ext_resource type="PackedScene" uid="uid://f3lqapsm5ln5" path="res://scenes/characters/enemies/base_enemy.tscn" id="1_0fuq5"]
+[ext_resource type="Script" path="res://scripts/characters/enemies/wind_golem.gd" id="2_h4erx"]
+[ext_resource type="Texture2D" uid="uid://g27djg1duqbt" path="res://assets/characters/enemies/wind_golem_spritesheet.png" id="3_ioebs"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://bleppgde20i2j" path="res://assets/animations/water_golem_anim.tres" id="4_fty1r"]
+[ext_resource type="PackedScene" uid="uid://c6u1gqy1agpn0" path="res://ui/health_bar/scenes/health_bar.tscn" id="5_2h7mi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2hjb"]
+size = Vector2(75, 108)
+
+[sub_resource type="Animation" id="Animation_axcw3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ow3iw"]
+resource_name = "idle_left"
+length = 0.6
+loop_mode = 2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6y37q"]
+resource_name = "idle_right"
+length = 0.6
+loop_mode = 2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1p3qv"]
+resource_name = "walk_left"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character Sprite:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_2f2nh"]
+resource_name = "walk_right"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character Sprite:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gkyib"]
+_data = {
+"RESET": SubResource("Animation_axcw3"),
+"idle_left": SubResource("Animation_ow3iw"),
+"idle_right": SubResource("Animation_6y37q"),
+"walk_left": SubResource("Animation_1p3qv"),
+"walk_right": SubResource("Animation_2f2nh")
+}
+
+[node name="Wind Golem" instance=ExtResource("1_0fuq5")]
+position = Vector2(0, -62)
+collision_layer = 2
+script = ExtResource("2_h4erx")
+
+[node name="Body" parent="." index="0"]
+position = Vector2(4.5, 7)
+shape = SubResource("RectangleShape2D_i2hjb")
+
+[node name="Character Sprite" parent="." index="1"]
+texture = ExtResource("3_ioebs")
+hframes = 10
+vframes = 4
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_gkyib")
+}
+
+[node name="AnimationTree" parent="." index="3"]
+tree_root = ExtResource("4_fty1r")
+parameters/conditions/Idle = false
+parameters/conditions/Walk = false
+parameters/Idle/blend_position = 0
+parameters/Walk/blend_position = 0
+
+[node name="HealthBar" parent="." index="5" instance=ExtResource("5_2h7mi")]
+offset_left = -115.0
+offset_top = -78.0
+offset_right = 119.0
+offset_bottom = -67.0
+
+[node name="Detection Box" parent="Areas" index="0"]
+collision_layer = 1
+collision_mask = 1
