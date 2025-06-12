@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="MeleeSkillResource" load_steps=2 format=3 uid="uid://cxbkmve5wh22n"]
+
+[ext_resource type="Script" path="res://resources/skill_resource/melee_skill_resource.gd" id="1_wubgr"]
+
+[resource]
+script = ExtResource("1_wubgr")
+swingLength = 150.0
+Name = &"Basic Attack"
+description = ""
+effect = 4.0
+effectType = 0
+element = 0
+cost = 0.0
+type = 0
+castTime = 0.0
+cooldownTime = 0.2
+requiredLevel = 0
+onCooldown = false
+learned = false
+disabled = false

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://f3lqapsm5ln5"]
+
+[ext_resource type="PackedScene" uid="uid://cnmomrs3w47ie" path="res://scenes/characters/base_character.tscn" id="1_kk428"]
+[ext_resource type="Script" path="res://scripts/characters/enemies/base_enemy.gd" id="2_l2lqp"]
+[ext_resource type="Script" path="res://scripts/characters/animTree.gd" id="3_7myyj"]
+
+[node name="BaseEnemy" instance=ExtResource("1_kk428")]
+script = ExtResource("2_l2lqp")
+current_faction = 1
+
+[node name="AnimationTree" parent="." index="3" node_paths=PackedStringArray("agent")]
+script = ExtResource("3_7myyj")
+agent = NodePath("..")

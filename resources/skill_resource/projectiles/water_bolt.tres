@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ProjectileSkillResource" load_steps=2 format=3 uid="uid://dxpwg6kcbbh3w"]
+
+[ext_resource type="Script" path="res://resources/skill_resource/projectile_skill_resource.gd" id="1_ue4k8"]
+
+[resource]
+script = ExtResource("1_ue4k8")
+currentSpeed = 150.0
+distance = 100.0
+Name = &"Water Bolt"
+description = ""
+effect = 10.0
+effectType = 0
+element = 1
+cost = 0.0
+type = 0
+castTime = 0.0
+cooldownTime = 0.5
+requiredLevel = 0
+onCooldown = false
+learned = false
+disabled = false

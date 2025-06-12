@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnmomrs3w47ie"]
+
+[ext_resource type="Script" path="res://scripts/characters/base_character.gd" id="1_xh4s6"]
+[ext_resource type="Script" path="res://scripts/skills/skill_manager.gd" id="2_hoap3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ammfy"]
+radius = 200.0
+
+[node name="BaseCharacter" type="CharacterBody2D" node_paths=PackedStringArray("skill_manager")]
+script = ExtResource("1_xh4s6")
+skill_manager = NodePath("SkillManager")
+
+[node name="Body" type="CollisionShape2D" parent="."]
+
+[node name="Character Sprite" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="State Machine" type="Node" parent="."]
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="Detection Box" type="Area2D" parent="Areas"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Detection Box"]
+shape = SubResource("CircleShape2D_ammfy")
+
+[node name="SkillManager" type="Node" parent="." node_paths=PackedStringArray("agent")]
+script = ExtResource("2_hoap3")
+agent = NodePath("..")
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+
+[connection signal="body_entered" from="Areas/Detection Box" to="." method="character_detected"]
+[connection signal="body_exited" from="Areas/Detection Box" to="." method="character_exited"]

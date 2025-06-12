@@ -1,0 +1,216 @@
+[gd_scene load_steps=13 format=3 uid="uid://cdqaecd0m0doa"]
+
+[ext_resource type="PackedScene" uid="uid://cnmomrs3w47ie" path="res://scenes/characters/base_character.tscn" id="1_jpuip"]
+[ext_resource type="Script" path="res://scripts/characters/player.gd" id="2_74esf"]
+[ext_resource type="Texture2D" uid="uid://5jyy8ji8nchl" path="res://assets/characters/player_spritesheet.png" id="3_5j2b6"]
+[ext_resource type="PackedScene" uid="uid://c6u1gqy1agpn0" path="res://ui/health_bar/scenes/health_bar.tscn" id="5_j0wqp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5potf"]
+size = Vector2(28, 9)
+
+[sub_resource type="Animation" id="Animation_8dcpu"]
+resource_name = "stance"
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Character Sprite:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r5p76"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Character Sprite:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_8et52"]
+resource_name = "run"
+length = 1.00001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Character Sprite:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2), Vector2i(6, 2), Vector2i(7, 2), Vector2i(8, 2), Vector2i(9, 2), Vector2i(10, 2), Vector2i(11, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_a2d8w"]
+resource_name = "jump"
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Character Sprite:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bfvuj"]
+resource_name = "attack"
+length = 0.333342
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Character Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(2, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Character Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vfk3"]
+_data = {
+"RESET": SubResource("Animation_r5p76"),
+"attack": SubResource("Animation_bfvuj"),
+"jump": SubResource("Animation_a2d8w"),
+"run": SubResource("Animation_8et52"),
+"stance": SubResource("Animation_8dcpu")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ammfy"]
+radius = 200.0
+
+[node name="Player" groups=["Player"] instance=ExtResource("1_jpuip")]
+texture_filter = 1
+position = Vector2(1, -40)
+script = ExtResource("2_74esf")
+
+[node name="Body" parent="." index="0"]
+position = Vector2(-2, 35)
+shape = SubResource("RectangleShape2D_5potf")
+
+[node name="Pivot" type="Node2D" parent="." index="1"]
+
+[node name="Character Sprite" type="Sprite2D" parent="Pivot" index="0"]
+position = Vector2(17, -5)
+texture = ExtResource("3_5j2b6")
+hframes = 12
+vframes = 4
+frame = 24
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_3vfk3")
+}
+
+[node name="Camera2D" type="Camera2D" parent="." index="5"]
+position = Vector2(2, 38)
+offset = Vector2(0, -96)
+zoom = Vector2(1.5, 1.75)
+
+[node name="HealthBar" parent="." index="6" node_paths=PackedStringArray("agent") instance=ExtResource("5_j0wqp")]
+offset_left = -128.0
+offset_top = -84.0
+offset_right = 128.0
+offset_bottom = -52.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+agent = NodePath("..")
+
+[node name="Pivot#Areas" type="Node2D" parent="." index="7"]
+visible = false
+
+[node name="Detection Box" type="Area2D" parent="Pivot#Areas" index="0"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot#Areas/Detection Box" index="0"]
+shape = SubResource("CircleShape2D_ammfy")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
+[connection signal="body_entered" from="Pivot#Areas/Detection Box" to="." method="character_detected"]
+[connection signal="body_exited" from="Pivot#Areas/Detection Box" to="." method="character_exited"]
