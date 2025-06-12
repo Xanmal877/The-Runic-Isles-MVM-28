@@ -11,8 +11,10 @@ func _physics_process(delta: float) -> void:
 	# Actually move the character
 	move_and_slide()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	primary_attack()
+	save_game()
+	load_game()
 
 func handle_movement(delta) -> void:
 	handle_basic_movement(delta)
@@ -23,12 +25,10 @@ func handle_basic_movement(delta):
 	direction.x = Input.get_axis("walk_left", "walk_right")
 	
 	if direction.x != 0:
-		# Apply acceleration when moving - Fixed formula
-		# Just use speed directly instead of speed*speed
-		velocity.x = move_toward(velocity.x, direction.x * speed, acceleration * delta)
+		velocity.x = direction.x * (speed * speed) * delta
 	else:
 		# Apply friction - gradual slowdown is more natural than instant stop
-		velocity.x = move_toward(velocity.x, 0, acceleration * delta)
+		velocity.x = 0.0
 	
 	# Handle running (shift)
 	if Input.is_action_pressed("run"):
@@ -78,3 +78,11 @@ func primary_attack():
 					print("Damaged: " + str(enemy.name) + "remaining health: " + str(enemy.health))
 					check_killed()
 					enemy.check_killed()
+
+func save_game():
+	if Input.is_action_just_pressed("look_up"):
+		SaveSystem.save_character(self)
+
+func load_game():
+	if Input.is_action_just_pressed("look_down"):
+		SaveSystem.load_character(self)

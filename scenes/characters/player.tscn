@@ -355,7 +355,8 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="CircleShape2D" id="CircleShape2D_r3hca"]
 radius = 100.0
 
-[node name="Player" node_paths=PackedStringArray("animtree") instance=ExtResource("1_jpuip")]
+[node name="Player" node_paths=PackedStringArray("animtree") groups=["Player"] instance=ExtResource("1_jpuip")]
+
 texture_filter = 1
 position = Vector2(-2, -40)
 script = ExtResource("2_74esf")
@@ -367,7 +368,7 @@ defense = 5.0
 speed = 100
 normal_speed = 100
 run_speed = 125
-acceleration = 150.0
+acceleration = 100.0
 jump_height = 100.0
 
 [node name="Body" parent="." index="0"]
@@ -399,8 +400,8 @@ parameters/Walk/blend_position = Vector2(0, 0)
 script = ExtResource("4_af85m")
 agent = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Detection Box" index="0"]
-shape = SubResource("CircleShape2D_r3hca")
-
 [node name="Camera2D" type="Camera2D" parent="." index="6"]
-zoom = Vector2(1.5, 1.5)
+position = Vector2(2, 38)
+offset = Vector2(0, -96)
+zoom = Vector2(1.5, 1.75)
+
