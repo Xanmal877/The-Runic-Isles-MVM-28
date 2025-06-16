@@ -1,11 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://d181gx0nsa3ip"]
+[gd_scene load_steps=12 format=4 uid="uid://d181gx0nsa3ip"]
 
 [ext_resource type="PackedScene" uid="uid://dqlgasggxd8t7" path="res://scenes/levels/base_level.tscn" id="1_tkitw"]
 [ext_resource type="TileSet" uid="uid://cydfo7e1tjxov" path="res://assets/tilemap/TileMaps.tres" id="2_w3oa3"]
-[ext_resource type="Script" path="res://scripts/interacts/exits/level_exit.gd" id="3_36oos"]
+[ext_resource type="Script" path="res://scripts/interacts/level_change.gd" id="3_36oos"]
 [ext_resource type="Texture2D" uid="uid://cqbdfkqq2dn8j" path="res://assets/environments/Backgrounds/Cave Background/Cave_Background_Layer1.png" id="3_o2t4w"]
-[ext_resource type="PackedScene" uid="uid://cdqaecd0m0doa" path="res://scenes/characters/player.tscn" id="3_x41g7"]
-[ext_resource type="Script" path="res://scripts/interacts/exits/level_enter.gd" id="4_3xq63"]
 [ext_resource type="Texture2D" uid="uid://j117edap7kpg" path="res://assets/environments/Backgrounds/Cave Background/Cave_Background_Layer2.png" id="4_o5p82"]
 [ext_resource type="Texture2D" uid="uid://cxm5p1q2cc5yd" path="res://assets/environments/Backgrounds/Cave Background/Cave_Background_layer3.png" id="5_kyxlj"]
 [ext_resource type="Texture2D" uid="uid://svqs83vkn1bd" path="res://assets/environments/Backgrounds/Cave Background/Cave_Background_Layer4.png" id="6_0jdoo"]
@@ -13,6 +11,36 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cjq4k"]
 radius = 51.1566
+
+[sub_resource type="GDScript" id="GDScript_665gh"]
+script/source = "class_name EnterLevel extends Area2D
+
+@export var levelEnter: PackedScene
+var can_interact = false
+var player: BaseCharacter
+var world: Node2D
+
+func _ready() -> void:
+	get_tree().create_timer(1).timeout
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group(\"Player\"):
+		can_interact = true
+		
+func _on_area_exited(area: Area2D) -> void:
+	if area.is_in_group(\"Player\"):
+		can_interact = false
+
+func _process(_delta):
+	if can_interact and Input.is_action_just_pressed(\"Interact\"):
+		player = get_tree().get_first_node_in_group(\"Player\")
+		world = get_tree().get_first_node_in_group(\"World\")
+		var level = levelEnter.instantiate()
+		world.add_child(level)
+		var locationmarker = level.get_node_or_null(\"$../../EnterLocation\")
+		player.global_position = locationmarker.global_position
+		
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1qhua"]
 radius = 52.2398
@@ -74,7 +102,7 @@ shape = SubResource("CircleShape2D_cjq4k")
 
 [node name="level_enter" type="Area2D" parent="Areas" index="1"]
 position = Vector2(1924, 466)
-script = ExtResource("4_3xq63")
+script = SubResource("GDScript_665gh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/level_enter" index="0"]
 shape = SubResource("CircleShape2D_1qhua")
@@ -82,16 +110,6 @@ shape = SubResource("CircleShape2D_1qhua")
 [node name="item rune" parent="Areas" index="2" instance=ExtResource("9_atbe2")]
 position = Vector2(751, 286)
 scale = Vector2(0.5, 0.5)
-
-[node name="Player" parent="." index="6" instance=ExtResource("3_x41g7")]
-position = Vector2(121, 463)
-
-[node name="Camera2D" type="Camera2D" parent="Player" index="6"]
-limit_left = 0
-limit_top = -385
-limit_right = 2015
-limit_bottom = 640
-editor_draw_limits = true
 
 [connection signal="area_entered" from="Areas/level_exit" to="Areas/level_exit" method="_on_area_entered"]
 [connection signal="area_exited" from="Areas/level_exit" to="Areas/level_exit" method="_on_area_exited"]

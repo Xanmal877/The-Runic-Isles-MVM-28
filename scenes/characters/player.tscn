@@ -1,10 +1,9 @@
-[gd_scene load_steps=46 format=3 uid="uid://cdqaecd0m0doa"]
+[gd_scene load_steps=45 format=3 uid="uid://cdqaecd0m0doa"]
 
 [ext_resource type="PackedScene" uid="uid://cnmomrs3w47ie" path="res://scenes/characters/base_character.tscn" id="1_jpuip"]
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="2_74esf"]
 [ext_resource type="Texture2D" uid="uid://5jyy8ji8nchl" path="res://assets/characters/player_spritesheet.png" id="3_5j2b6"]
 [ext_resource type="Script" path="res://scripts/characters/animations/player_animtree.gd" id="4_af85m"]
-[ext_resource type="PackedScene" uid="uid://c6u1gqy1agpn0" path="res://ui/health_bar/scenes/health_bar.tscn" id="5_j0wqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5potf"]
 size = Vector2(28, 9)
@@ -34,6 +33,35 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [24]
+}
+
+[sub_resource type="Animation" id="Animation_kr2vb"]
+resource_name = "attack_left"
+length = 0.333342
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ro3l6"]
@@ -233,48 +261,6 @@ tracks/2/keys = {
 "values": [Vector2(19, -4)]
 }
 
-[sub_resource type="Animation" id="Animation_mklhi"]
-resource_name = "walk_right"
-length = 0.916671
-loop_mode = 1
-step = 0.0416667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Character Sprite:flip_h")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Character Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Character Sprite:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(19, -4)]
-}
-
 [sub_resource type="Animation" id="Animation_v76mm"]
 resource_name = "walk_left"
 length = 0.916671
@@ -317,33 +303,46 @@ tracks/2/keys = {
 "values": [Vector2(-20, -4)]
 }
 
-[sub_resource type="Animation" id="Animation_kr2vb"]
-resource_name = "attack_left"
-length = 0.333342
-step = 0.0833333
+[sub_resource type="Animation" id="Animation_mklhi"]
+resource_name = "walk_right"
+length = 0.916671
+loop_mode = 1
+step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Character Sprite:frame")
+tracks/0/path = NodePath("Character Sprite:flip_h")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [36, 37, 38, 39]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Character Sprite:flip_h")
+tracks/1/path = NodePath("Character Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Character Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(19, -4)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3vfk3"]
@@ -485,9 +484,9 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_tcqk8")
 states/Walk/position = Vector2(582, 101)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ru40v"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_dxd5e"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_dny17"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_rcm8d"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_y7lyu"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_1i1r1"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_6kwy4"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_d1338"), "Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_gvi1y"), "Walk", "Attack", SubResource("AnimationNodeStateMachineTransition_sxj8j"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_5k501")]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1dqel"]
-radius = 12.0
-height = 68.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmh56"]
+radius = 15.0
+height = 80.0
 
 [node name="Player" node_paths=PackedStringArray("animtree") groups=["Player"] instance=ExtResource("1_jpuip")]
 texture_filter = 1
@@ -526,6 +525,9 @@ parameters/Walk/blend_position = Vector2(0, 0)
 script = ExtResource("4_af85m")
 agent = NodePath("..")
 
+[node name="CollisionShape2D" parent="Areas/hitbox" index="0"]
+shape = SubResource("CapsuleShape2D_tmh56")
+
 [node name="CollisionShape2D" parent="Areas/Detection Box" index="0"]
 position = Vector2(-5, -6)
 
@@ -533,20 +535,5 @@ position = Vector2(-5, -6)
 position = Vector2(2, 38)
 offset = Vector2(0, -96)
 zoom = Vector2(1.5, 1.75)
-
-[node name="hitbox" parent="." index="8"]
-position = Vector2(0, 7)
-
-[node name="CollisionShape2D" parent="hitbox" index="0"]
-shape = SubResource("CapsuleShape2D_1dqel")
-
-[node name="HealthBar" parent="." index="9" node_paths=PackedStringArray("agent") instance=ExtResource("5_j0wqp")]
-offset_left = -128.0
-offset_top = -84.0
-offset_right = 128.0
-offset_bottom = -52.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-agent = NodePath("..")
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

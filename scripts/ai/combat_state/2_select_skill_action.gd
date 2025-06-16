@@ -8,7 +8,6 @@ func HandleState() -> void:
 	agent.skill_manager.currentSkill = null
 	var spells_by_priority = []
 
-	# First check if skillBook is empty or null
 	if agent.skill_manager.skillBook.size() == 0:
 		print("Warning: " + agent.Name + " has no skills in skillbook")
 		agent.isProcessingState = false
@@ -18,21 +17,6 @@ func HandleState() -> void:
 	for skill in agent.skill_manager.skillBook:
 		if skill == null or skill.onCooldown:
 			continue
-
-		## Check resource costs
-		#match skill.type:
-			#SkillResource.resources.Mana:
-				#if agent.mana < skill.cost:
-					#continue
-			#SkillResource.resources.Stamina:
-				#if agent.stamina < skill.cost:
-					#continue
-			#SkillResource.resources.Health:
-				#if agent.health <= skill.cost:
-					#continue
-#
-		## In the skill scoring loop, after the resource checks:
-		#print(agent.name + " checking skill: " + str(skill.Name) + " (Mana: " + str(agent.mana) + "/" + str(skill.cost) + " CD: " + str(skill.onCooldown) + ")")
 
 		var score_data = CalculateSpellScore(skill)
 		# After calculating score:

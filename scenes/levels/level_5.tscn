@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dqlgasggxd8t7" path="res://scenes/levels/base_level.tscn" id="1_juj64"]
 [ext_resource type="TileSet" uid="uid://cydfo7e1tjxov" path="res://assets/tilemap/TileMaps.tres" id="2_fsapu"]
 [ext_resource type="PackedScene" uid="uid://cdqaecd0m0doa" path="res://scenes/characters/player.tscn" id="2_ypgx7"]
-[ext_resource type="Script" path="res://scripts/interacts/exits/level_exit.gd" id="3_1ctl8"]
+[ext_resource type="Script" path="res://scripts/interacts/level_change.gd" id="3_1ctl8"]
 [ext_resource type="Script" path="res://scripts/interacts/exits/level_enter.gd" id="4_06pej"]
 [ext_resource type="Script" path="res://scripts/interacts/exits/level_enter_2.gd" id="5_1iwln"]
 

@@ -69,8 +69,10 @@ func character_detected(body: Node2D) -> void:
 		enemies_detected.append(body)
 		print(self.name + " Has found Enemy: " + body.name)
 
-func character_exited(_body: Node2D) -> void:
-	pass # Replace with function body.
+#func character_exited(body: Node2D) -> void:
+	#if body is BaseCharacter and body.current_faction != current_faction:
+		#enemies_detected.erase(body)
+		#print(self.name + " Has found Enemy: " + body.name)
 
 func check_killed():
 	if health <= 0:

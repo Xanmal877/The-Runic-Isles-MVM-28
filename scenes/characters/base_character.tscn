@@ -23,6 +23,12 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="Areas" type="Node2D" parent="."]
 
+[node name="hitbox" type="Area2D" parent="Areas"]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/hitbox"]
+
 [node name="Detection Box" type="Area2D" parent="Areas"]
 collision_layer = 3
 collision_mask = 3
@@ -33,12 +39,6 @@ shape = SubResource("CircleShape2D_ammfy")
 [node name="SkillManager" type="Node" parent="." node_paths=PackedStringArray("agent")]
 script = ExtResource("2_hoap3")
 agent = NodePath("..")
-
-[node name="hitbox" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 
 [connection signal="body_entered" from="Areas/Detection Box" to="." method="character_detected"]
 [connection signal="body_exited" from="Areas/Detection Box" to="." method="character_exited"]
