@@ -39,7 +39,7 @@ func EnemyLogic() -> bool:
 			found = true
 	if not highPriorityEnemies.is_empty():
 		target = highPriorityEnemies.reduce(
-			func(min, pair): return pair if pair[1] < min[1] else min, 
+			func(current, pair): return pair if pair[1] < current[1] else current, 
 			highPriorityEnemies[0])[0]
 		return true
 	return found

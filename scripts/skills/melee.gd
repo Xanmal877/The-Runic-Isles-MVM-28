@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func SetupDirection():
 	var target_position: Vector2
-	
+
 	# Check if this is an AI enemy or player
 	if agent is not Player and is_instance_valid(agent.current_combat_target):
 		# For AI, swing towards their current target
@@ -26,15 +26,15 @@ func SetupDirection():
 		print(agent.name + " swinging towards: " + agent.current_combat_target.name)
 	else:
 		target_position = get_global_mouse_position()
-	
-	direction = agent.global_position.direction_to(target_position) * 15
+
+	direction = agent.global_position.direction_to(target_position)
 	look_at(global_position + direction)
-	global_position = agent.global_position + direction
+	global_position = agent.global_position + direction * skill.swingLength
 
 func EnemyHit(area: Area2D) -> void:
 	print("Melee hit detected!")
 	target = area.get_owner()
-	print("Target hit: ", target.name if target else "null")
+	#print("Target hit: ", target.name if target else "null")
 	
 	if target == agent:
 		print("Hit self, ignoring")
@@ -45,7 +45,7 @@ func EnemyHit(area: Area2D) -> void:
 	queue_free()
 
 func ApplyEffect() -> void:
-	print("Applying effect to: ", target.name if target else "null")
+	#print("Applying effect to: ", target.name if target else "null")
 	if is_instance_valid(agent):
 		if skill.effectType == skill.EffectType.Harm:
 			print("Applying damage: ", skill.effect)

@@ -92,7 +92,7 @@ func primary_attack():
 
 	if !enemies_detected.is_empty():
 		for enemy in enemies_detected:
-			if is_instance_valid(enemy) and global_position.distance_to(enemy.global_position) <= 100:
+			if is_instance_valid(enemy) and global_position.distance_to(enemy.global_position) <= 60:
 				enemy.health -= damage
 				#print("Damaged: " + str(enemy.name) + " remaining health: " + str(enemy.health))
 				check_killed()

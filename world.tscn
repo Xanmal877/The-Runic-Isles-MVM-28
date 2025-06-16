@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cyharyqj5h6yt"]
+[gd_scene load_steps=12 format=3 uid="uid://cyharyqj5h6yt"]
 
 [ext_resource type="PackedScene" uid="uid://cdqaecd0m0doa" path="res://scenes/characters/player.tscn" id="1_yl4tg"]
 [ext_resource type="Script" path="res://ui/mouse_cursor/scripts/mouse_cursor.gd" id="3_kuprw"]
@@ -10,18 +10,25 @@
 [ext_resource type="Script" path="res://ui/tab_menu_button/scripts/tab_menu_button.gd" id="7_hehre"]
 [ext_resource type="Texture2D" uid="uid://cqmiynauk5bn1" path="res://ui/tab_menu_button/assets/spr_tab_menu_button_hover.png" id="8_gmq2v"]
 [ext_resource type="PackedScene" uid="uid://c6u1gqy1agpn0" path="res://ui/health_bar/scenes/health_bar.tscn" id="10_cxcni"]
-[ext_resource type="PackedScene" uid="uid://e5wra3a5rw3w" path="res://scenes/levels/Water_Isle.tscn" id="12_aly08"]
-[ext_resource type="PackedScene" uid="uid://bcha7ddupyojl" path="res://scenes/characters/enemies/water_sprite.tscn" id="13_grgy3"]
+[ext_resource type="PackedScene" uid="uid://e5wra3a5rw3w" path="res://scenes/levels/level_1.tscn" id="12_aly08"]
 
-[node name="World" type="Node2D" groups=["WorldNode"]]
+[node name="World" type="Node2D" groups=["World", "WorldNode"]]
+
+[node name="level_1" parent="." instance=ExtResource("12_aly08")]
 
 [node name="Player" parent="." instance=ExtResource("1_yl4tg")]
-position = Vector2(417, 505)
+position = Vector2(246, 280)
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" parent="UILayer" node_paths=PackedStringArray("agent") instance=ExtResource("10_cxcni")]
+anchors_preset = -1
+anchor_right = 0.159375
+anchor_bottom = 0.0361111
+offset_right = 0.0
+offset_bottom = -9.53674e-07
 agent = NodePath("../../Player")
+metadata/_edit_use_anchors_ = true
 
 [node name="MouseCursor" type="Node" parent="UILayer"]
 script = ExtResource("3_kuprw")
@@ -41,17 +48,5 @@ texture_pressed = ExtResource("7_cmoa1")
 texture_hover = ExtResource("8_gmq2v")
 script = ExtResource("7_hehre")
 menu_instance = ExtResource("5_ledne")
-
-[node name="Water_Isle" parent="." instance=ExtResource("12_aly08")]
-position = Vector2(67, 6)
-
-[node name="Water Sprite" parent="." instance=ExtResource("13_grgy3")]
-position = Vector2(665, 534)
-
-[node name="Water Sprite2" parent="." instance=ExtResource("13_grgy3")]
-position = Vector2(859, 518)
-
-[node name="Water Sprite3" parent="." instance=ExtResource("13_grgy3")]
-position = Vector2(1058, 529)
 
 [connection signal="toggled" from="UILayer/TabMenuButton" to="UILayer/TabMenuButton" method="_on_toggled"]

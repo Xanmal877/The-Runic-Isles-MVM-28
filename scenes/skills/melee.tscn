@@ -42,6 +42,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47rfv"]
 size = Vector2(30, 28)
 
+[sub_resource type="Animation" id="Animation_2w7aj"]
+resource_name = "Basic Attack"
+
 [sub_resource type="Resource" id="Resource_qx15r"]
 metadata/__load_path__ = "res://assets/skills/sprites/spear.png"
 
@@ -150,9 +153,6 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(15.0397, 0.0396786), Vector2(45, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_2w7aj"]
-resource_name = "Basic Attack"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p1m2t"]
 _data = {

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://bjlqsgvkongcx"]
 
 [ext_resource type="PackedScene" uid="uid://dqlgasggxd8t7" path="res://scenes/levels/base_level.tscn" id="1_aasm6"]
-[ext_resource type="Script" path="res://scripts/interacts/exits/level_exit.gd" id="2_87d3d"]
+[ext_resource type="Script" path="res://scripts/interacts/level_change.gd" id="2_87d3d"]
 [ext_resource type="Texture2D" uid="uid://dmyye20bn881l" path="res://assets/environments/Backgrounds/Forest Background/Sky.png" id="2_dqffr"]
 [ext_resource type="Texture2D" uid="uid://byne2mdqk0s0d" path="res://assets/environments/Backgrounds/Forest Background/Clouds.png" id="3_6hxt0"]
 [ext_resource type="Script" path="res://scripts/interacts/exits/level_enter.gd" id="3_ln5fe"]

@@ -40,7 +40,7 @@ func CanCast(agent: BaseCharacter, target: BaseCharacter, skill: SkillResource) 
 		print("No Agent")
 		return false
 
-	if !is_instance_valid(target) and agent.is_in_group("AIControlled"):
+	if !is_instance_valid(target):
 		print("Invalid target")
 		return false
 

@@ -38,13 +38,11 @@ func CanCast() -> bool:
 
 	# Check distance to target - USE SWINGLENGTH FOR MELEE
 	if is_instance_valid(agent.current_combat_target):
-		var skill_range = 100.0  # Default fallback
+		var skill_range = 60.0  # Default fallback
 		
 		# Check if it's a melee skill with swingLength
 		if agent.skill_manager.currentSkill is MeleeSkillResource:
 			skill_range = agent.skill_manager.currentSkill.swingLength
-		elif "range" in agent.skill_manager.currentSkill:
-			skill_range = agent.skill_manager.currentSkill.range
 		
 		var distance_to_target = agent.global_position.distance_to(agent.current_combat_target.global_position)
 		if distance_to_target > skill_range:

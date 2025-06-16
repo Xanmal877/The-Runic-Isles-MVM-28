@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_wubgr")
-swingLength = 150.0
+swingLength = 30.0
 Name = &"Basic Attack"
 description = ""
 effect = 4.0

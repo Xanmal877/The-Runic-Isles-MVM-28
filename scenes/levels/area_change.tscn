@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm8baiphofc48"]
+
+[ext_resource type="Script" path="res://scripts/interacts/level_change.gd" id="1_oc2g0"]
+
+[node name="AreaChange" type="Area2D"]
+script = ExtResource("1_oc2g0")
+
+[connection signal="body_entered" from="." to="." method="BodyEnteredArea"]
+[connection signal="body_exited" from="." to="." method="BodyLeftArea"]
